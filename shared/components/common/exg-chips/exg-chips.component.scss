@@ -1,0 +1,22 @@
+:host {
+    .chip-option {
+        min-height: 3.2rem;
+    }
+
+    ::ng-deep {
+        .mat-mdc-chip-action-label {
+            font-size: 1.4rem !important;
+            font-style: normal;
+            line-height: 2rem !important;
+        }
+
+        
+        .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled):not(.mat-mdc-chip-selected) {
+            background-color: #F6F6F8;
+        }
+
+        .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled):not(.mat-mdc-chip-selected) .mdc-evolution-chip__text-label {
+            color: #A6A8B7;
+        }
+    }
+}

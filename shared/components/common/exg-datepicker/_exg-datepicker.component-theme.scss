@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    // Get the color config from the theme.
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+    $warn-palette: map.get($color-config, 'warn');
+
+    .exg-datepicker-style-common {
+        .mdc-text-field--outlined:not(.mdc-text-field--disabled) {
+            .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                border-color: mat.get-color-from-palette($primary-palette, 'darker-contrast') !important;
+            }
+        }
+
+        .mat-focused {
+            .mdc-text-field--outlined:not(.mdc-text-field--disabled) {
+                .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                    border-color: mat.get-color-from-palette($primary-palette) !important;  
+                }
+            }
+
+            .mat-mdc-form-field-required-marker {
+                color: mat.get-color-from-palette($primary-palette) !important;
+            }
+        }
+    }
+
+    .exg-datepicker-style-stroked {
+        .mdc-text-field--outlined:not(.mdc-text-field--disabled) {
+            .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                border-color: mat.get-color-from-palette($primary-palette) !important;
+            }
+        }
+
+        .mat-focused {
+            .mat-mdc-form-field-required-marker {
+                color: mat.get-color-from-palette($primary-palette) !important;
+            }
+        }
+
+        .mat-datepicker-input {
+            color: mat.get-color-from-palette($primary-palette) !important;
+        }
+    }
+
+    .exg-datepicker-style-flat {
+        background-color: mat.get-color-from-palette($primary-palette) !important;
+        border-radius: 0.8rem;
+
+        .mat-datepicker-input {
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast') !important;
+        }
+
+        .toggle-icon {
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast') !important;
+        }
+    }
+
+    .exg-datepicker-style-common .ng-touched.ng-invalid {
+        .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+            border-color: mat.get-color-from-palette($warn-palette) !important;
+        }
+
+        .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+            color: mat.get-color-from-palette($warn-palette) !important;
+        }
+
+        .mat-mdc-form-field-required-marker {
+            color: mat.get-color-from-palette($warn-palette) !important;
+        }
+    }
+
+    .exg-datepicker-style-common, .exg-datepicker-style-stroked, .exg-datepicker-style-empty, .exg-datepicker-style-readonly {
+        .mdc-text-field--disabled .mdc-text-field__input {
+            color: mat.get-color-from-palette($accent-palette) !important;
+        }
+    
+        .mat-calendar-table-header {
+            span {
+                color: mat.get-color-from-palette($accent-palette) !important; 
+            }
+        }
+    
+        .mdc-button__label {
+            span {
+                color: mat.get-color-from-palette($accent-palette) !important;  
+            }
+        }
+    }
+
+    .ng-touched.ng-invalid {
+        .mat-form-field-label {
+            color: mat.get-color-from-palette($warn-palette) !important;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-size: cover;
+    background-position: 50%;
+
+    section {
+        padding: 3.5rem 4.4rem 4.7rem 4.5rem;
+        background-color: white;
+        border-radius: 11px;
+        position: relative;
+    }
+
+    .logo {
+        margin-bottom: 2.7rem;
+    }
+
+    .logo-tns {
+        width: 87;
+        height: 30;
+        align-self: flex-start;
+        margin-bottom: 10;
+    }
+
+    .mobile-box {
+        display: none;
+    }
+
+    @media (max-width: 600px) {
+        align-items: flex-start;
+        background-size: cover;
+        background-position: 50%;
+
+        section {
+            margin-top: 22.2rem;
+            padding: 2.4rem 2.4rem 2.6rem 2.3rem;
+            width: 100%;
+            border-radius: 11px 11px 0 0;
+            min-height: calc(100vh - 22.2rem);
+        }
+    }
+
+    .host {
+        justify-content: flex-end;
+        align-items: center;
+        background-size: cover;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .section {
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-size: cover;
+        flex-direction: column;
+        background-color: white;
+        padding: 18 18 20 20;
+        border-radius: 11px 11px 0 0;
+        margin-top: 22;
+        height: 70%;
+    }
+
+    .tap {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+}

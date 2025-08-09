@@ -1,0 +1,22 @@
+<FlexboxLayout class="content">
+    <FlexboxLayout class="main-title" [formGroup]="mainForm">
+        <exg-textbox class="title" formControlName="search" [maxlength]="32" [placeholder]="'Search' | translate" [required]="true" (valueChange)="onValueChange($event)"></exg-textbox>
+        <Image (tap)="onClose()" class="tap-box" src="~/assets/images/inforound.png"></Image>
+    </FlexboxLayout>
+    <ScrollView>
+        <FlexboxLayout>
+            <FlexboxLayout class="list" *ngIf="data && data[0]">
+                <FlexboxLayout class="item" *ngFor="let v of data; trackBy: trackByItem" (tap)="onSelect(v)">
+                    <ng-container *ngIf="!!displayValueTemplate" [ngTemplateOutlet]="displayValueTemplate" [ngTemplateOutletContext]="{$implicit: v.originalValue}"></ng-container>
+                    <Label *ngIf="!displayValueTemplate" [text]="v.displayValue"></Label>
+                </FlexboxLayout>
+            </FlexboxLayout>
+    
+            <FlexboxLayout class="list" *ngIf="!data || !data[0]">
+                <FlexboxLayout class="item">
+                    <Label [text]="'No data for select' | translate"></Label>
+                </FlexboxLayout>
+            </FlexboxLayout>
+        </FlexboxLayout>
+    </ScrollView>
+</FlexboxLayout>

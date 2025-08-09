@@ -1,0 +1,11 @@
+<mat-checkbox *ngIf="!slideMode && !tapMode" [indeterminate]="indeterminate" [attr.disabled]="readonly" [class.text-reverse]="textReverse" [checked]="value" class="exg-checkbox" [color]="color" [disabled]="readonly" (change)="onChange($event)">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</mat-checkbox>
+<mat-slide-toggle *ngIf="slideMode" [attr.disabled]="readonly" [checked]="value" class="exg-slide-toggle" [color]="color" [disabled]="readonly" (change)="onChange($event)" labelPosition="before">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</mat-slide-toggle>
+<button class="tap-mode" type="button" [class.tap-checkbox-active]="value" [disabled]="readonly" [class]="color" *ngIf="tapMode" (click)="onChange({ checked: !value, source: null })">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</button>
+
+<ng-template #content><ng-content></ng-content></ng-template>

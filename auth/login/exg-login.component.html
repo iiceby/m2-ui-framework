@@ -1,0 +1,16 @@
+<h2 translate>Login to the system</h2>
+
+<form [formGroup]="mainForm" [autocomplete]="true" [exgDisabled]="pending" (submit)="$event.preventDefault(); onSubmit()">
+    <exg-textbox [autoFocus]="true" formControlName="login" [maxlength]="128" placeholder="{{'Login' | translate}}" [required]="true" [controlsToValidate]="[login]" [validate]="validate$ | async"></exg-textbox>
+
+    <exg-textbox class="textbox" formControlName="password" [maxlength]="64" placeholder="{{'Password' | translate}}" [isPassword]="true" inputType="password" [required]="true" [controlsToValidate]="[password]" [validate]="validate$ | async"></exg-textbox>
+
+    <exg-form-error [error]="error"></exg-form-error>
+
+    <exg-button class="submit submit_web" type="submit" width="100%">{{'Log In' | translate}}</exg-button>
+
+    <div class="bottom" *ngIf="showBottomNavigation">
+        <a class="forget_password" [routerLink]="[routes.auth.resetPassword.fullUrl]" translate>Forgot password?</a>
+    </div>
+    
+</form>

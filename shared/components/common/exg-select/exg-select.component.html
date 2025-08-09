@@ -1,0 +1,29 @@
+<mat-form-field (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false" [appearance]="appearance">
+    <mat-select [compareWith]="compareFn"
+                [disabled]="disabled || readonly"
+                [multiple]="multiple"
+                [panelWidth]="panelWidth"
+                [(ngModel)]="value"
+                [required]="required"
+                [panelClass]="isLinePicker ? 'line-picker' : ''"
+                (openedChange)="onOpenedChange($event)"
+                (selectionChange)="onSelectionChange($event)">
+
+        <mat-select-trigger *ngIf="!!selectedDisplayFunction || !!selectedDisplayTemplate">
+            <ng-container *ngIf="!!selectedDisplayTemplate" [ngTemplateOutlet]="selectedDisplayTemplate" [ngTemplateOutletContext]="{$implicit: value}"></ng-container>
+            <ng-container *ngIf="!selectedDisplayTemplate">{{selectedDisplayValue}}</ng-container>
+        </mat-select-trigger>
+
+        <mat-option *ngIf="allowNull" [ngStyle]="{'height': rowHeight}">{{emptyDisplayValue}}</mat-option>
+        <mat-option *ngFor="let v of internalData; trackBy: trackByItem" [value]="v.originalValue" [ngStyle]="{'height': rowHeight}">
+            <ng-container *ngIf="!!displayValueTemplate" [ngTemplateOutlet]="displayValueTemplate" [ngTemplateOutletContext]="{$implicit: v.originalValue}"></ng-container>
+            <ng-container *ngIf="!displayValueTemplate">{{v.displayValue}}</ng-container>
+        </mat-option>
+    </mat-select>
+
+    <mat-label>{{placeholder}}</mat-label>
+
+    <exg-validation-messages matSuffix class="valid_message" [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+</mat-form-field>
+
+<ng-content></ng-content>

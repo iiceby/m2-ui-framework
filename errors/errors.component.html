@@ -1,0 +1,15 @@
+<FlexboxLayout class="container_tns">
+    <FlexboxLayout class="btn_tns" (tap)="goToHome()">
+        <label [text]="'Go to home' | translate"></label>
+    </FlexboxLayout>
+
+    <ScrollView>
+        <FlexboxLayout class="list">
+            <FlexboxLayout class="item" *ngFor="let error of errors$ | async">
+                <label textWrap="true" [text]="error.text"></label>
+                <label textWrap="true" class="data" [text]="getDataString(error.data)"></label>
+            </FlexboxLayout>
+        </FlexboxLayout>
+    </ScrollView>
+
+</FlexboxLayout>

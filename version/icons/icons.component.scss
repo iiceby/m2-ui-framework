@@ -1,0 +1,17 @@
+:host {
+    margin: 30px;
+
+    .title {
+        display: block;
+    }
+
+    .content {
+        display: flex;
+        flex-flow: wrap;
+
+        .icon-box {
+            padding: 5px;
+            margin: 15px;
+        }
+    }
+}

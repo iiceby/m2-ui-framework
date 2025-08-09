@@ -1,0 +1,27 @@
+<ng-container *ngIf="isBrowser">
+    <exg-map class="map" [fitMapBoundsAlways]="true" [scrollWheelZoom]="true" [defaultCenter]="defaultCenter" (mapReady)="onMapReady($event)"></exg-map>
+
+    <div class="draw-map-container">
+        <exg-draw-toolbar class="tooltip"
+                          [drawState]="drawState$ | async"
+                          [undoEnabled]="undoEnabled$ | async"
+                          [redoEnabled]="redoEnabled$ | async"
+                          (actionChanged)="onToolbarActionChanged($event)"
+                          (backClick)="onBackClick()"></exg-draw-toolbar>
+
+        <ng-content></ng-content>
+
+        <exg-draw-info *ngIf="(drawState$ | async) === tooltipActionEnum.Add"
+                        class="info"
+                        text="{{ 'To save contour, it is necessary to close it (connect the end of the contour to the beginning)' }}"></exg-draw-info>
+        
+        <div class="zoom-btns">
+            <exg-button class="zoom" styleType="custom" (btnClick)="onZoomChange(true)">
+                <exg-icon class="zoom-icon" color="primary" iconName="add-line"></exg-icon>
+            </exg-button>
+            <exg-button class="zoom" styleType="custom" (btnClick)="onZoomChange(false)">
+                <exg-icon class="zoom-icon" color="primary" iconName="subtract-line"></exg-icon>
+            </exg-button>
+        </div>
+    </div>
+</ng-container>

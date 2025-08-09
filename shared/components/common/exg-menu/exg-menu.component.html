@@ -1,0 +1,13 @@
+<div class="wrapper" [matMenuTriggerFor]="menuWrapper">
+    <ng-content></ng-content>
+</div>
+
+<mat-menu class="exg-menu" #menuWrapper @menuAnimation>
+    <ng-container *ngFor="let item of items; trackBy: trackByItem">
+        <button mat-menu-item *ngIf="!!item.id" type="button" [class]="item?.color || 'primary'" class="btn exg-menu-btn" [ngClass]="{'exg-menu-btn_min': !item?.icon}" exgHover (click)="onItemClick(item)">
+            <exg-icon *ngIf="!!item.icon" class="exg-menu-item-icon" iconName="{{item.icon}}"></exg-icon>
+            <span class="exg-menu-item-title">{{item.name || item.title || item}}</span>
+        </button>
+        <ng-container *ngIf="!item.id"><hr /></ng-container>
+    </ng-container>
+</mat-menu>

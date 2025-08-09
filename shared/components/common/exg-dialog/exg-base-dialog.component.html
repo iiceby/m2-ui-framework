@@ -1,0 +1,21 @@
+
+<div class="dialog" [ngStyle]="{ 'min-width': width }">
+    <div *ngIf="title" class="dialog-title">{{title}}</div>
+    <div class="dialog-content">
+        <div class="dialog-component"><div #dynamicComponentContainer></div></div>
+
+        <div *ngIf="!!message" class="dialog-message" [innerHTML]="message"></div>
+
+        <div *ngIf="!!description" [class.message]="!!message" class="dialog-description" [innerHTML]="description"></div>
+
+        <div *ngIf="buttons && buttons[0]" class="dialog-buttons">
+            <exg-button *ngFor="let button of buttons; trackBy: trackByButton"
+                        class="dialog-button"
+                        [color]="button.color"
+                        [styleType]="button.styleType"
+                        (btnClick)="onClick(button)">
+                {{button.text}}
+            </exg-button>
+        </div>
+    </div>
+</div>

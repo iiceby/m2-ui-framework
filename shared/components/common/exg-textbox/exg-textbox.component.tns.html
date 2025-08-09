@@ -1,0 +1,15 @@
+<TextField class="text-field"
+           [hint]="placeholder"
+           [secure]="isPassword"
+           autocorrect="false"
+           [isEnabled]="!readonly"
+           [maxlength]="maxlength"
+           [(ngModel)]="value"
+           (focus)="focused=true"
+           [autocapitalizationType]="autocapitalizationType"
+           (blur)="onBlur()"
+           (textChange)="onValueChange($event.value)"></TextField>
+
+<FlexboxLayout class="errors">
+    <exg-validation-messages class="validation_message" [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered || validate"></exg-validation-messages>
+</FlexboxLayout>

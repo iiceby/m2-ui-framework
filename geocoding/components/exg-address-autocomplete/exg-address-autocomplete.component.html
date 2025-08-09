@@ -1,0 +1,20 @@
+<exg-autocomplete class="control"
+                  [maxlength]="maxlength" 
+                  [data]="places$ | async"
+                  [placeholder]="placeholder"
+                  [value]="value"
+                  [readonly]="readonly"
+                  [styleType]="styleType"
+                  [allowNull]="allowNull"
+                  [emptyDisplayValue]="emptyDisplayValue"
+                  [displayValueFunction]="addressDisplayValueFunction"
+                  [displayValueTemplate]="addressDisplayValueTemplate"
+                  [validate]="validate"
+                  [controlsToValidate]="controlsToValidate"
+                  (valueChange)="onSearchPlace($event)"
+                  (selectionChange)="onSelectionChange($event)"></exg-autocomplete>
+<ng-template #addressDisplayValueTemplate let-val>
+    <div class="address-box">
+        <span>{{val.fullName || ''}}{{val.name || ''}} {{val.text || ''}}</span>
+    </div>
+</ng-template>

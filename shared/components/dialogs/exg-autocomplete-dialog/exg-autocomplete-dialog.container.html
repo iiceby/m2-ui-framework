@@ -1,0 +1,4 @@
+<exg-autocomplete-dialog [data]="data$ | async"
+                         [placeholder]="placeholder"
+                         (dialogClose)="onCloseDialog($event)"
+                         (termChanged)="onTermChanged($event)"></exg-autocomplete-dialog>

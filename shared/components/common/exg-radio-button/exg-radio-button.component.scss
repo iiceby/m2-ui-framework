@@ -1,0 +1,59 @@
+@import 'variables';
+
+:host {
+    .mgl-radio-group {
+        display: inherit;
+        flex-direction: inherit;
+    }
+
+    .mgl-radio-button {
+        margin-right: 4.6rem;
+        display: inline-flex;
+        height: 4rem;
+    }
+
+    .mgl-radio-group.column {
+        display: flex;
+        flex-direction: column;
+        line-height: inherit;
+
+        .mgl-radio-button {
+            margin-right: 0;
+        }
+    }
+
+    ::ng-deep {
+        .mat-radio-label-content {
+            font-size: 1.2rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2.33;
+            letter-spacing: 0.4px;
+            color: #6f7585;
+            margin-top: 2px;
+        }
+
+        .mat-radio-container{
+            height: 16px;
+            width: 16px;
+        }
+
+        .mat-radio-outer-circle{
+            height: 16px;
+            width: 16px;
+        }
+
+        .mat-radio-inner-circle{
+            height: 16px;
+            width: 16px;
+        }
+
+        .mat-radio-button .mat-radio-ripple{
+            height: 32px; /*double of your required circle radius*/
+            width: 32px;  /*double of your required circle radius*/
+            left: calc(50% - 16px); /*'10px'-same as your required circle radius*/
+            top: calc(50% - 16px); /*'10px'-same as your required circle radius*/
+        }
+    }
+}

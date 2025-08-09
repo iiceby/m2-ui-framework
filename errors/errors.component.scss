@@ -1,0 +1,27 @@
+:host {
+    .container_tns {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        padding-top: 55px;
+    }
+
+    .btn_tns {
+        width: 100%;
+        height: 105px;
+        background-color: #00b5d5;
+    }
+
+    .list {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .item {
+        flex-direction: column;
+    }
+
+    .data {
+        padding-left: 20;
+    }
+}

@@ -1,0 +1,6 @@
+<mat-chip-listbox [value]="internalValue" [multiple]="multiple" (change)="onValueChange($event)">
+    <mat-chip-option class="chip-option" *ngFor="let item of internalData; trackBy: trackByItem" [selected]="internalValue === item.selectValue" [color]="color" [value]="item.selectValue" (selectionChange)="onSelectionChange($event, item.originalValue)">
+        <ng-container *ngIf="!!displayValueTemplate" [ngTemplateOutlet]="displayValueTemplate" [ngTemplateOutletContext]="{$implicit: item.originalValue}"></ng-container>
+        <ng-container *ngIf="!displayValueTemplate">{{item.displayValue}}</ng-container>
+    </mat-chip-option>
+</mat-chip-listbox>

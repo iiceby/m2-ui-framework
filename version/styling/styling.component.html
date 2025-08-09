@@ -1,0 +1,286 @@
+<div class="components">
+    <div class="title">Theme</div>
+    <div class="component-box">
+        <exg-button class="control theme-light" styleType="flat" (btnClick)="changeTheme(false)">Light theme</exg-button>
+        <exg-button class="control theme-dark" styleType="flat" (btnClick)="changeTheme(true)">Dark theme</exg-button>
+    </div>
+    <div class="title">Textbox</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">common (default)</div>
+            <exg-textbox class="control"
+                         placeholder="{{'Textbox' }}"
+                         [required]="true"
+                         [validate]="false"></exg-textbox>
+        </div>
+        <div class="component">
+            <div class="styleType">inline</div>
+            <exg-textbox class="control"
+                         styleType="inline"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+        <div class="component">
+            <div class="styleType">empty</div>
+            <exg-textbox class="control empty"
+                         styleType="empty"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+        <div class="component">
+            <div class="styleType">readonly</div>
+            <exg-textbox class="control empty"
+                         styleType="readonly"
+                         [readonly]="true"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+        <div class="component">
+            <div class="styleType">common url</div>
+            <exg-textbox class="control"
+                         [urlButtonValue]="'http://localhost:4201/version/styling'"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+		 <div class="component">
+            <div class="styleType">common coppy</div>
+            <exg-textbox class="control"
+                         [coppyButtonValue]="'coppy data'"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+		<div class="component">
+            <div class="styleType">common add action</div>
+            <exg-textbox class="control"
+                         [enableAddButton]="true"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+        <div class="component">
+            <div class="styleType">common password</div>
+            <exg-textbox class="control"
+                         inputType="password"
+                         [isPassword]="true"
+                         placeholder="{{'Textbox' }}"
+                         [validate]="false"></exg-textbox>
+        </div>
+    </div>
+    <!-- <div class="title">Autocomplete</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">common (default)</div>
+            <exg-autocomplete class="control"
+                              [maxlength]="255" 
+                              [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                              placeholder="{{'Autocomplete' }}"></exg-autocomplete>
+        </div>
+        <div class="component">
+            <div class="styleType">inline</div>
+            <exg-autocomplete class="control"
+                              styleType="inline"
+                              [maxlength]="255" 
+                              [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                              placeholder="{{'Autocomplete' }}"></exg-autocomplete>
+        </div>
+        <div class="component">
+            <div class="styleType">empty</div>
+            <exg-autocomplete class="control empty"
+                              styleType="empty"
+                              [maxlength]="255" 
+                              [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                              placeholder="{{'Autocomplete' }}"></exg-autocomplete>
+        </div>
+        <div class="component">
+            <div class="styleType">readonly</div>
+            <exg-autocomplete class="control empty"
+                              styleType="readonly"
+                              [readonly]="true"
+                              [maxlength]="255" 
+                              [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                              placeholder="{{'Autocomplete' }}"></exg-autocomplete>
+        </div>
+        <div class="component">
+            <div class="styleType">common with icon</div>
+            <exg-autocomplete class="control"
+                              iconName="search"
+                              [maxlength]="255" 
+                              [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                              placeholder="{{'Autocomplete' }}"></exg-autocomplete>
+        </div>
+    </div> -->
+    <div class="title">Select</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">common (default)</div>
+            <exg-select class="control"
+                        [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                        [required]="true"
+                        placeholder="{{'Select' }}"></exg-select>
+        </div>
+        <div class="component">
+            <div class="styleType">empty</div>
+            <exg-select class="control empty"
+                        [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                        styleType="empty"
+                        [required]="true"
+                        placeholder="{{'Select' }}"></exg-select>
+        </div>
+        <div class="component">
+            <div class="styleType">readonly</div>
+            <exg-select class="control"
+                        [data]="[{id: 1, text: 'Value 1'}, { id: 2, text: 'Value 2'}]"
+                        [value]="{id: 1, text: 'Value 1'}"
+                        styleType="readonly"
+                        [readonly]="true"
+                        placeholder="{{'Select' }}"></exg-select>
+        </div>
+    </div>
+    <div class="title">Button</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">common (default)</div>
+            <exg-button class="control">Common button</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">outlined</div>
+            <exg-button class="control" styleType="outlined">Outlined button</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">texted</div>
+            <exg-button class="control" styleType="texted">Texted button</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">flat</div>
+            <exg-button class="control" color="primary" styleType="flat">Texted button</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">icon</div>
+            <exg-button class="control icon_btn" styleType="icon">
+                <exg-icon class="icon" color="primary" iconName="weburl"></exg-icon>
+            </exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">fab</div>
+            <exg-button class="control icon_btn" styleType="fab">
+                <exg-icon class="icon" color="primary" iconName="weburl"></exg-icon>
+            </exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">link</div>
+            <exg-button class="control link" styleType="link">Link button</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">link (primary color)</div>
+            <exg-button class="control link" color="primary" styleType="link">Link button primary</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">custom</div>
+            <exg-button class="control custom"styleType="custom">Custom button</exg-button>
+        </div>
+        <div class="component">
+            <div class="styleType">custom (active)</div>
+            <exg-button class="control custom active"styleType="custom">Custom button</exg-button>
+        </div>
+    </div>
+    <div class="title">Datepicker</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">common (default)</div>
+            <exg-datepicker class="control datepicker"
+                            placeholder="{{'Date picker' }}"></exg-datepicker>
+        </div>
+        <div class="component">
+            <div class="styleType">empty</div>
+            <exg-datepicker class="control datepicker empty"
+                            styleType="empty"
+                            placeholder="{{'Date picker' }}"></exg-datepicker>
+        </div>
+        <div class="component">
+            <div class="styleType">readonly</div>
+            <exg-datepicker class="control datepicker"
+                            styleType="readonly"
+                            [value]="1692183760000"
+                            [readonly]="true"
+                            placeholder="{{'Date picker' }}"></exg-datepicker>
+        </div>
+        <div class="component">
+            <div class="styleType">range common (default)</div>
+            <exg-datepicker-range class="control datepicker" placeholder="{{'Date range' }}"></exg-datepicker-range>
+        </div>
+        <div class="component">
+            <div class="styleType">range empty</div>
+            <exg-datepicker-range class="control datepicker empty" styleType="empty" placeholder="{{'Date range' }}"></exg-datepicker-range>
+        </div>
+        <div class="component">
+            <div class="styleType">range readonly</div>
+            <exg-datepicker-range class="control datepicker empty"
+                                  [readonly]="true" 
+                                  [value]="{ begin: 1692097360000, end: 1692183760000 }"
+                                  styleType="readonly"
+                                  placeholder="{{'Date range' }}"></exg-datepicker-range>
+        </div>
+        <div class="component">
+            <div class="styleType">month common (default)</div>
+            <exg-datepicker-month class="control datepicker"
+                                    placeholder="{{'Date picker' }}"></exg-datepicker-month>
+        </div>
+        <div class="component">
+            <div class="styleType">month empty</div>
+            <exg-datepicker-month class="control datepicker empty"
+                                    styleType="empty"
+                                    placeholder="{{'Date picker' }}"></exg-datepicker-month>
+        </div>
+        <div class="component">
+            <div class="styleType">month readonly</div>
+            <exg-datepicker-month class="control datepicker"
+                                    styleType="readonly"
+                                    [value]="1692183760000"
+                                    [readonly]="true"
+                                    placeholder="{{'Date picker' }}"></exg-datepicker-month>
+        </div>
+    </div>
+    <div class="title">Timepicker</div>
+    <div class="component-box">
+        <div class="component">
+            <!-- <exg-timepicker class="control" placeholder="{{'Timepicker' }}"></exg-timepicker> -->
+        </div>
+    </div>
+    <div class="title">Checkbox</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">Checkbox</div>
+            <exg-checkbox class="control" [slideMode]="false">
+                {{'Checkbox' }}
+            </exg-checkbox>
+        </div>
+        <div class="component">
+            <div class="styleType">Checkbox - slider</div>
+            <exg-checkbox class="control" color="primary" [slideMode]="true">
+                {{'Checkbox' }}
+            </exg-checkbox>
+        </div>
+        <div class="component">
+            <div class="styleType">Checkbox - tap</div>
+            <exg-checkbox class="control tap" color="primary" [value]="true" [tapMode]="true">
+                {{'Checkbox' }}
+            </exg-checkbox>
+        </div>
+    </div>
+    <!-- <div class="title">Chips input</div>
+    <div class="component-box">
+        <div class="component">
+            <exg-chips-input class="control" [value]="['test', 'tesasd']" placeholder="{{'Chips' }}"></exg-chips-input>
+        </div>
+    </div>
+    <div class="title">Chips</div>
+    <div class="component-box">
+        <div class="component">
+            <div class="styleType">Chips - single</div>
+            <exg-chips class="control" [value]="'first'" [data]="['first', 'second', 'fird']"></exg-chips>
+        </div>
+        <div class="component">
+            <div class="styleType">Chips - multiple</div>
+            <exg-chips class="control" [multiple]="true" [allowNull]="true" [value]="['first', 'second']" [data]="['first', 'second', 'fird']"></exg-chips>
+        </div>
+    </div> -->
+</div>

@@ -1,0 +1,31 @@
+<mat-form-field [class.border-enable]="border" [appearance]="appearance" (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false">
+    <input #input matInput
+           class="web" 
+           [ngxTimepicker]="exgPicker"
+           [value]="internalValue"
+           [required]="!!required"
+           [format]="24"
+           autocomplete="off"
+           readonly
+           (timeChanged)="onTimeChange($event)">
+
+    <mat-label class="placeholder">{{placeholder}}</mat-label>
+
+    <ngx-material-timepicker #exgPicker [cancelBtnTmpl]="cancelBtnTmpl" [format]="24" [confirmBtnTmpl]="confirmBtnTmpl" (timeChanged)="onTimeChange($event)"></ngx-material-timepicker>
+
+    <ng-template #cancelBtnTmpl>
+        <exg-button class="cancel btn" styleType="outlined">{{'Отмена'}}</exg-button>
+    </ng-template>
+
+    <ng-template #confirmBtnTmpl>
+        <exg-button class="btn" styleType="common" (btnClick)="onAccept()">{{'Подтвердить'}}</exg-button>
+    </ng-template>
+
+    <exg-button matSuffix class="time-show" styleType="icon" [tabindex]="-1" (btnClick)="click()">
+        <exg-icon class="show-icon" color="primary" iconName="time-line"></exg-icon>
+    </exg-button>
+
+    <exg-validation-messages [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+</mat-form-field>
+
+<input style="position: fixed; top: -5000px; left: -5000px" #elemToFocus />

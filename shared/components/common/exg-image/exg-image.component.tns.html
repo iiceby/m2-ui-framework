@@ -1,0 +1,2 @@
+<Image *ngIf="!authorized" [class.round]="isRound" [src]="imageUrl" (failure)="onLoadError()"></Image>
+<Image *ngIf="authorized" [class.round]="isRound" [src]="imageUrl | exgSecure | async" (failure)="onLoadError()"></Image>

@@ -1,0 +1,9 @@
+<div class="title">Application icons:</div>
+<div class="content">
+    <ng-container *ngFor="let icon of icons$ | async; trackBy: trackByIcon">
+        <div class="icon-box">
+            <exg-icon iconName="{{icon}}" width="70px" height="70px"></exg-icon>
+            {{icon}}
+        </div>
+    </ng-container>
+</div>

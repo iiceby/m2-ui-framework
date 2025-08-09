@@ -1,0 +1,30 @@
+<mat-form-field [ngClass]="{'mgn-invalid': invalid}" [appearance]="appearance" (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false">
+    <input matInput
+           class="web"
+           [matDatepicker]="exgDatePicker"
+           [max]="internalMaxDate"
+           [min]="internalMinDate"
+           [required]="!!required"
+           [placeholder]="placeholder"
+           [value]="internalValue"
+           (click)="exgDatePicker.open()"
+           (dateChange)="onDateChange($event)"
+           (keydown)="false">
+    
+    <mat-label class="placeholder">{{placeholder}}</mat-label>
+
+    <mat-datepicker #exgDatePicker [disabled]="readonly"></mat-datepicker>
+
+    <div class="valid_wrapper" *ngIf="!disableIcon" matSuffix>
+        <mat-datepicker-toggle class="datepicker-toggle" [for]="exgDatePicker">
+            <exg-icon matDatepickerToggleIcon [color]="iconColor" iconName="datepicker" class="toggle-icon"></exg-icon>
+        </mat-datepicker-toggle>
+
+        <exg-validation-messages [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+    </div>
+
+</mat-form-field>
+
+<input style="position: fixed; top: -5000px; left: -5000px" #elemToFocus />
+
+<ng-content></ng-content>

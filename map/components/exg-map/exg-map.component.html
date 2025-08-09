@@ -1,0 +1,6 @@
+<ng-container *ngIf="isBrowser">
+    <div leaflet class="map" [leafletOptions]="options" (leafletMapReady)="onMapReady($event)">
+        <div *ngIf="markers?.length" [leafletLayer]="markersLayer"></div>
+        <div *ngIf="tracks?.length" [leafletLayer]="tracksLayer"></div>
+    </div>
+</ng-container>

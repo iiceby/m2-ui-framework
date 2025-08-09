@@ -1,0 +1,267 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+$hover-opacity: 0.08;
+
+@mixin color($theme) {
+    // Get the color config from the theme.
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+    $warn-palette: map.get($color-config, 'warn');
+
+    .exg-button-style-texted {
+        button {
+            background-color: transparent;
+            color: mat.get-color-from-palette($accent-palette);
+        }
+    
+        button {
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($primary-palette), $hover-opacity);
+                color: mat.get-color-from-palette($primary-palette);
+            }
+        }
+
+        button.primary {
+            color: red;
+
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($primary-palette), $hover-opacity);
+            }
+        }
+
+        button.accent {
+            color: mat.get-color-from-palette($accent-palette);
+
+            &:hover:enabled {
+                color: mat.get-color-from-palette($accent-palette);
+                background-color: rgba(mat.get-color-from-palette($accent-palette), $hover-opacity);
+            }
+        }
+
+        button.warn {
+            color: mat.get-color-from-palette($warn-palette);
+
+            &:hover:enabled {
+                color: mat.get-color-from-palette($warn-palette);
+                background-color: rgba(mat.get-color-from-palette($warn-palette), $hover-opacity);
+            }
+        }
+    }
+
+    .exg-button-style-common {
+        button {
+            background: mat.get-color-from-palette($primary-palette);
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast');
+        }
+
+        button.primary {
+            background: mat.get-color-from-palette($primary-palette);
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast');
+
+            &:hover:enabled {
+                background-color: mat.get-color-from-palette($primary-palette, 'darker');
+            }
+        }
+
+        button.accent {
+            background: mat.get-color-from-palette($accent-palette);
+            color: mat.get-color-from-palette($accent-palette, 'default-contrast');
+
+            &:hover:enabled {
+                background-color: mat.get-color-from-palette($accent-palette, 'darker');
+            }
+        }
+
+        button.warn {
+            background: mat.get-color-from-palette($warn-palette);
+            color: mat.get-color-from-palette($warn-palette, 'default-contrast');
+
+            &:hover:enabled {
+                background-color: mat.get-color-from-palette($warn-palette, 'darker');
+            }
+        }
+    }
+
+    .exg-button-style-outlined {
+        button {
+            color: mat.get-color-from-palette($primary-palette);
+            border-color: mat.get-color-from-palette($primary-palette);
+            background-color: transparent;
+        }
+
+        button:hover:enabled {
+            background-color: rgba(#5b5e79, $hover-opacity);
+        }
+
+        button.primary {
+            color: mat.get-color-from-palette($primary-palette);
+            border-color: mat.get-color-from-palette($primary-palette);
+        }
+
+        button.accent {
+            border-color: mat.get-color-from-palette($accent-palette);
+            color: mat.get-color-from-palette($accent-palette);
+
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($accent-palette), $hover-opacity);
+            }
+        }
+
+        button.warn {
+            border-color: mat.get-color-from-palette($warn-palette);
+            color: mat.get-color-from-palette($warn-palette);
+
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($warn-palette), $hover-opacity);
+            }
+        }
+    }
+
+    .exg-button-style-icon {
+        button {
+            background-color: transparent;
+        }
+
+        .web-btn {
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($accent-palette), 0.1);
+            }
+        }
+
+        button.primary, button.active {
+            color: mat.get-color-from-palette($primary-palette);
+
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($primary-palette), $hover-opacity);
+            }
+        }
+
+        button.accent {
+            color: mat.get-color-from-palette($accent-palette);
+
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($accent-palette), $hover-opacity);
+            }
+        }
+
+        button.warn {
+            color: mat.get-color-from-palette($warn-palette);
+
+            &:hover:enabled {
+                background-color: rgba(mat.get-color-from-palette($warn-palette), $hover-opacity);
+            }
+        }
+    }
+
+    .exg-button-style-fab {
+        button {
+            background-color: mat.get-color-from-palette($accent-palette, 'default-contrast');
+        }
+
+        button.primary {
+            background-color: mat.get-color-from-palette($primary-palette);
+
+            &:hover:enabled {
+                background-color: mat.get-color-from-palette($primary-palette, 'darker');
+            }
+        }
+
+        button.accent {
+            background-color: mat.get-color-from-palette($accent-palette);
+
+            &:hover:enabled {
+                background-color: mat.get-color-from-palette($accent-palette, 'darker');
+            }
+        }
+
+        button.warn {
+            background-color: mat.get-color-from-palette($warn-palette);
+
+            &:hover:enabled {
+                background-color: mat.get-color-from-palette($warn-palette, 'darker');
+            }
+        }
+    }
+
+    .exg-button-style-custom {
+        button {
+            color: inherit
+        }
+
+        button.primary {
+            color: mat.get-color-from-palette($primary-palette);
+        }
+
+        button.accent {
+            color: mat.get-color-from-palette($accent-palette);
+        }
+
+        button.warn {
+            color: mat.get-color-from-palette($warn-palette);
+        }
+ 
+        &::before {
+            background: mat.get-color-from-palette($primary-palette);
+        }
+    }
+
+    .exg-button-style-link {
+        button {
+            color: mat.get-color-from-palette($accent-palette);
+
+            &::before {
+                background: mat.get-color-from-palette($accent-palette);
+            }
+        }
+
+        button.primary {
+            color: mat.get-color-from-palette($primary-palette);
+
+            &::before {
+                background: mat.get-color-from-palette($primary-palette);
+            }
+        }
+
+        button.accent {
+            color: mat.get-color-from-palette($accent-palette);
+
+            &::before {
+                background: mat.get-color-from-palette($accent-palette);
+            }
+        }
+
+        button.warn {
+            color: mat.get-color-from-palette($warn-palette);
+
+            &::before {
+                background: mat.get-color-from-palette($warn-palette);
+            }
+        }
+    }
+
+    .exg-button-style-flat {
+        button {
+            color: inherit;
+            background-color: transparent;
+        }
+
+        button.primary {
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast');
+            background-color: mat.get-color-from-palette($primary-palette);
+        }
+
+        button.accent {
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast');
+            background-color: mat.get-color-from-palette($accent-palette);
+        }
+
+        button.warn {
+            color: mat.get-color-from-palette($primary-palette, 'default-contrast');
+            background-color: mat.get-color-from-palette($warn-palette);
+        }
+    }
+}

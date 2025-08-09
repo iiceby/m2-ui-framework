@@ -1,0 +1,28 @@
+<div class="head">
+    <h4 class="title" translate>{{title}}</h4>
+    <p class="subtitle" translate>{{subtitle}}</p>
+</div>
+
+<div class="cropper-container">
+    <div [style.width.rem]="30" [style.height.rem]="19">
+        <image-cropper class="image-cropper"
+                       [aspectRatio]="aspectRatio"
+                       [format]="format"
+                       [imageBase64]="imageData"
+                       [imageQuality]="90"
+                       [maintainAspectRatio]="keepAspectRatio"
+                       [onlyScaleDown]="!allowUpScale"
+                       outputType="base64"
+                       [resizeToWidth]="resizeToWidth"
+                       [resizeToHeight]="resizeToHeight"
+                       (imageCropped)="onImageCropped($event)"
+                       (loadImageFailed)="onLoadImageFailed()"></image-cropper>
+    </div>
+</div>
+
+<input style="position: fixed; top: -5000px; left: -5000px;" />
+
+<div class="actions">
+    <exg-button class="cancel" styleType="outlined" (btnClick)="onCloseClick()">{{'Отмена'}}</exg-button>
+    <exg-button class="save" (btnClick)="onSaveClick()">{{'Сохранить'}}</exg-button>
+</div>

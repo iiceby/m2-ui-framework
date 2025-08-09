@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    // Get the color config from the theme.
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+    $warn-palette: map.get($color-config, 'warn');
+
+
+    .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+        background: rgba(mat.get-color-from-palette($primary-palette), 0.2) !important;
+    }
+
+    .tap-checkbox-active {
+        &.primary {
+            background: mat.get-color-from-palette($primary-palette) !important;
+        }
+        &.accent {
+            background: mat.get-color-from-palette($accent-palette) !important;
+        }
+        &.warn {
+            background: mat.get-color-from-palette($warn-palette) !important;
+        }
+    }
+}

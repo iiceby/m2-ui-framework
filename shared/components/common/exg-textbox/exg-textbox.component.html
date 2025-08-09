@@ -1,0 +1,61 @@
+<mat-form-field [floatLabel]="floatLabel" [appearance]="appearance" [class.textarea-form-field]="isMultiLine" [class.border-enable]="border" (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false">
+
+    <div class="height-layout" style="width: 100%;">
+        <input #input matInput
+               class="web"
+               *ngIf="!isMultiLine"
+               [attr.disabled]="!!readonly"
+               [attr.title]="title"
+               [autocomplete]="autocomplete"
+               [disabled]="!!readonly"
+               [imask]="mask" [unmask]="true"
+               [maxlength]="maxlength"
+               [(ngModel)]="value"
+               [required]="!!required"
+               [type]="inputType"
+               (blur)="onBlur()"
+               (keydown.enter)="onKeydownEnter()"
+               (ngModelChange)="onValueChange($event)" />
+
+        <textarea #input matInput
+                  *ngIf="!!isMultiLine"
+                  [attr.disabled]="!!readonly"
+                  [attr.title]="title"
+                  [cdkTextareaAutosize]="true"
+                  [cdkAutosizeMinRows]="multilineMinRows"
+                  [cdkAutosizeMaxRows]="multilineMaxRows"
+                  [maxlength]="maxlength"
+                  [disabled]="!!readonly"
+                  [(ngModel)]="value"
+                  [required]="!!required"
+                  (blur)="onBlur()"
+                  (keydown.enter)="onKeydownEnter()"
+                  (ngModelChange)="onValueChange($event)"></textarea>
+    </div>
+
+    <mat-label class="placeholder">{{placeholder}}</mat-label>
+
+    <ng-content></ng-content>
+
+    <div class="btn-box" *ngIf="min || max">
+        <exg-button styleType="icon" width="2.4rem" height="2.4rem" class="arrow-up" (btnClick)="add(1)"><exg-icon class="rating_icon" iconName="arrow-up1"></exg-icon></exg-button>
+        <exg-button styleType="icon" width="2.4rem" height="2.4rem" class="arrow-down" (btnClick)="add(-1)"><exg-icon class="rating_icon" iconName="arrow-down1"></exg-icon></exg-button>
+    </div>
+
+    <div class="valid_wrapper" matSuffix [class.valid_wrapper-password]="isPassword" >
+        <exg-button *ngIf="isPassword" class="password-show" styleType="icon" [tabindex]="-1" (mousedown)="inputType = 'text'" (mouseup)="inputType = 'password'" (mouseleave)="inputType = 'password'" (touchstart)="inputType = 'text'" (touchend)="inputType = 'password'">
+            <exg-icon class="show-icon" color="primary" iconName="password-show"></exg-icon>
+        </exg-button>
+        <exg-button *ngIf="enableAddButton && (hovered || focused)" class="custom-show" styleType="icon" [tabindex]="-1" (btnClick)="onAddBtnClick()">
+            <exg-icon class="custom-icon bigger" color="primary" iconName="addbtn"></exg-icon>
+        </exg-button>
+        <exg-button *ngIf="coppyButtonValue && (hovered || focused)" class="custom-show" styleType="icon" [tabindex]="-1"  [cdkCopyToClipboard]="coppyButtonValue">
+            <exg-icon class="custom-icon" color="primary" iconName="copy"></exg-icon>
+        </exg-button>
+        <a *ngIf="urlButtonValue && (hovered || focused)" class="custom-show link" [href]="urlButtonValue | exgUrl" target="_blank">
+            <exg-icon class="custom-icon bigger" color="primary" iconName="weburl"></exg-icon>
+        </a>
+        <exg-validation-messages class="validation_message" [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+    </div>
+
+</mat-form-field>

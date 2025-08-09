@@ -1,0 +1,98 @@
+:host {
+    display: block;
+    width: 100vw;
+    max-width: 50rem;
+
+    .title {
+        color: rgba(0, 0, 0, 0.87);
+        margin-bottom: 0.9rem;
+    }
+
+    .subtitle {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 1.1rem;
+    }
+
+    .head {
+        padding: 1.7rem 1.7rem 1rem;
+        border-bottom: 1px solid rgba(#707070, 0.2);
+    }
+
+    .cropper-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.1rem;
+    }
+
+    .actions {
+        padding: 0.6rem;
+        text-align: right;
+        border-top: 1px solid rgba(#707070, 0.2);
+    }
+
+    .cropper-container .image-cropper {
+        height: 100%;
+
+        ::ng-deep {
+            .cropper {
+                &::after {
+                    opacity: 1;
+                    border: 1px solid #212121;
+                }
+
+                .bottom, .top, .left, .right {
+                    display: none;
+                }
+
+                .square {
+                    background: #fff !important;
+                    border: 1px solid #212121;
+                }
+            }
+        }
+    }
+
+    .cancel, .save {
+        min-width: 9rem;
+        border-radius: 0.3rem;
+        padding: 0.3px 0.3px 0.1px 0.3px;
+        height: 4.2rem;
+    }
+
+    .cancel {
+        margin-right: 0.6rem;
+        width: 9rem;
+    }
+
+    .save {
+        width: 12rem;
+    }
+}
+
+@media (max-width: 800px) {
+    :host {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    :host {
+        .cropper-container div {
+            max-height: calc(100vh - 21rem);
+            max-width: 100%;
+        }
+
+        .actions {
+            display: flex;
+            padding: 1rem 2rem;
+            justify-content: flex-end;
+        }
+
+        .save {
+            width: auto;
+            margin-left: 2rem;
+        }
+    }
+}

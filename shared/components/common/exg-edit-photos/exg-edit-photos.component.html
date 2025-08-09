@@ -1,0 +1,17 @@
+<div class="photos_row">
+
+    <exg-image-editor *ngFor="let photo of photos; trackBy: trackByPhoto" class="photo" [cropperConfig]="cropperConfig" [image]="photo.image" (imageRemove)="onImageRemove(photo)">
+        <div class="photo_text_icon">
+            <exg-icon class="photo_icon" iconName="add_photo3"></exg-icon>
+            <span translate>Add photo</span>
+        </div>
+    </exg-image-editor>
+
+
+    <exg-image-editor #imageEditor class="photo" [showError]="validate" [cropperConfig]="cropperConfig" (imageChange)="onImageAdd($event)">
+        <div class="photo_text_icon">
+            <exg-icon class="photo_icon" iconName="add_photo3"></exg-icon>
+            <span translate>Add photo</span>
+        </div>
+    </exg-image-editor>
+</div>

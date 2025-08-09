@@ -1,0 +1,39 @@
+<mat-form-field [ngClass]="{'mgn-invalid': invalid}" [appearance]="appearance" (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false">
+    <input matInput
+           class="web"
+           [matDatepicker]="exgDatePicker"
+           [max]="internalMaxDate"
+           [min]="internalMinDate"
+           [required]="!!required"
+           [placeholder]="placeholder"
+           [value]="internalValue"
+           [disabled]="readonly"
+           (click)="exgDatePicker.open()"
+           (dateChange)="onDateChange($event)"
+           (keydown)="false">
+    
+    <mat-label class="placeholder" *ngIf="!flatStyling">{{placeholder}}</mat-label>
+
+    <mat-datepicker #exgDatePicker [disabled]="readonly"></mat-datepicker>
+
+    <mat-datepicker-toggle matPrefix *ngIf="!!flatStyling" class="datepicker-toggle" [for]="exgDatePicker">
+        <exg-icon matDatepickerToggleIcon [color]="iconColor" iconName="datepicker1" class="toggle-icon"></exg-icon>
+    </mat-datepicker-toggle>
+
+    <div class="valid_wrapper" *ngIf="!disableIcon" matSuffix>
+        <mat-datepicker-toggle *ngIf="!flatStyling" class="datepicker-toggle" [for]="exgDatePicker">
+            <exg-icon matDatepickerToggleIcon [color]="iconColor" iconName="datepicker" class="toggle-icon"></exg-icon>
+        </mat-datepicker-toggle>
+
+        <exg-button class="clear-btn" [excludePadding]="true" *ngIf="exgStyleTypeFlat" (btnClick)="onCleanDate()">
+            <exg-icon iconName="close" class="toggle-icon"></exg-icon>
+        </exg-button>
+
+        <exg-validation-messages [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+    </div>
+
+</mat-form-field>
+
+<input style="position: fixed; top: -5000px; left: -5000px" #elemToFocus />
+
+<ng-content></ng-content>

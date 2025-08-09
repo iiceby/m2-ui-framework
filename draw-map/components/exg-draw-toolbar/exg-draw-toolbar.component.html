@@ -1,0 +1,13 @@
+<div class="tooltip">
+    <exg-button class="back-btn" color="primary" styleType="custom" (btnClick)="onBackClick()">
+        <exg-icon class="back-btn-icon" iconName="arrowleft"></exg-icon>
+        <div class="back-btn_title">{{ 'Back1' }}</div>
+    </exg-button>
+    <exg-button class="btn" *ngFor="let tooltipAction of tooltipActions;"
+                styleType="custom"
+                [disabled]="disabled[tooltipAction.id]"
+                [class.active]="drawState == tooltipAction.id"
+                (btnClick)="onClickAction(tooltipAction.id)">
+        <exg-icon class="btn-icon" [iconName]="iconsConfig[tooltipAction.id]"></exg-icon>
+    </exg-button>
+</div>

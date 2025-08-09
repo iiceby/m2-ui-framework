@@ -1,0 +1,50 @@
+<div class="root" *ngFor="let dataItem of data">
+    <div *ngTemplateOutlet="nodeTemplate; context: { $implicit: dataItem }"></div>
+</div>
+
+<ng-template #nodeTemplate let-node>
+    <div class="tree-item">
+        <exg-checkbox
+            *ngIf="showCheckboxes"
+            class="exg-checkbox"
+            [value]="node.checked"
+            [indeterminate]="node.indeterminate"
+            (valueChange)="setAll(node, $event)"></exg-checkbox>
+        <exg-button styleType="custom" (btnClick)="node.showChilds = !node.showChilds" [title]="node?.data" [ngClass]="{ 'arrow-section': true }">
+            <exg-icon *ngIf="node?.childrens?.length" class="arrow-icon" [iconName]="node.showChilds ? 'arrow-up1' : 'arrow-down1'"></exg-icon>
+        </exg-button>
+
+        <exg-button
+            *ngIf="node?.childrens?.length; else itemWithContextMenu"
+            class="tree-item__title"
+            styleType="custom"
+            (btnClick)="node.showChilds = !node.showChilds">
+            <span [ngClass]="{ 'tree-item__bold': false }" class="tree-item__title">
+                {{ node.name }} {{ node?.childrens?.length ? '(' + node?.childrens?.length + ')' : '' }}
+            </span>
+        </exg-button>
+
+        <ng-template #itemWithContextMenu>
+            <div *ngIf="showContextMenu" class="menu">
+                <exg-menu class="menu_el" [items]="menuItems" (menuItemClick)="onMenuItemClick(node)">
+                    <exg-button class="tree-item__title" styleType="custom" (btnClick)="node.showChilds = !node.showChilds">
+                        <span [ngClass]="{ 'tree-item__bold': node?.id === currentItemId }" class="tree-item__title">
+                            {{ node.name }} {{ node?.childrens?.length ? '(' + node?.childrens?.length + ')' : '' }}
+                        </span>
+                    </exg-button>
+                </exg-menu>
+            </div>
+            <div *ngIf="!showContextMenu" class="menu">
+                    <exg-button class="tree-item__title" styleType="custom" (btnClick)="onMenuItemClick(node)">
+                        <span [ngClass]="{ 'tree-item__bold': node?.id === currentItemId }" class="tree-item__title">
+                            {{ node.name }} {{ node?.childrens?.length ? '(' + node?.childrens?.length + ')' : '' }}
+                        </span>
+                    </exg-button>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="tree-items" *ngIf="node.showChilds">
+        <ng-container *ngFor="let child of node.childrens" [ngTemplateOutlet]="nodeTemplate" [ngTemplateOutletContext]="{ $implicit: child }"></ng-container>
+    </div>
+</ng-template>

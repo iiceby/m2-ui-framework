@@ -1,0 +1,31 @@
+@use '../components/common/exg-autocomplete/exg-autocomplete.component-theme' as exgAutocomplete;
+@use '../components/common/exg-button/exg-button.component-theme' as exgButton;
+@use '../components/common/exg-checkbox/exg-checkbox.component-theme' as exgCheckbox;
+@use '../components/common/exg-datepicker/exg-datepicker.component-theme' as exgDatepicker;
+@use '../components/common/exg-datepicker-month/exg-datepicker-month.component-theme' as exgDatepickerMonth;
+@use '../components/common/exg-datepicker-range/exg-datepicker-range.component-theme' as exgDatepickerRange;
+@use '../components/common/exg-icon/exg-icon.component-theme' as exgIcon;
+@use '../components/common/exg-menu/exg-menu.component-theme' as exgMenu;
+@use '../components/common/exg-select/exg-select.component-theme' as exgSelect;
+@use '../components/common/exg-textbox/exg-textbox.component-theme' as exgTextbox;
+@use '../components/common/exg-timepicker/exg-timepicker.component-theme' as exgTimepicker;
+@use '../components/common/exg-routing-tree/exg-routing-tree.component-theme' as exgRoutingTree;
+@use '../components/common/exg-validation-messages/exg-validation-messages.component-theme' as exgValidationMessages;
+@use '../components/common/exg-colors.component-theme' as exgColors;
+
+@mixin apply($theme) {
+    @include exgAutocomplete.color($theme);
+    @include exgButton.color($theme);
+    @include exgCheckbox.color($theme);
+    @include exgDatepicker.color($theme);
+    @include exgDatepickerMonth.color($theme);
+    @include exgDatepickerRange.color($theme);
+    @include exgIcon.color($theme);
+    @include exgMenu.color($theme);
+    @include exgSelect.color($theme);
+    @include exgTextbox.color($theme);
+    @include exgTimepicker.color($theme);
+    @include exgRoutingTree.color($theme);
+    @include exgValidationMessages.color($theme);
+    @include exgColors.color($theme);
+}

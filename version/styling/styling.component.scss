@@ -1,0 +1,84 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    color: #5b5e79;
+
+    &.black-theme {
+        background-color: #1A1C20;
+    }
+
+    .components {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .theme-light {
+        color: #474d53;
+        background-color: #dce7ef;
+        margin-right: 2rem;
+        height: 4rem;
+        border-radius: 0.4rem;
+    }
+
+    .theme-dark {
+        color: #dce7ef;
+        background-color: #474d53;
+        height: 4rem;
+        border-radius: 0.4rem;
+    }
+
+    .title {
+        font-size: 3.6rem;
+        font-weight: 500;
+        line-height: 3.6rem;
+        margin: 2rem; 
+    }
+
+    .component-box {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .component {
+        margin: 2rem;
+        flex-direction: column;
+    }
+
+    .styleType {
+        font-size: 2.3rem;
+    }
+
+    .control {
+        width: 30rem;
+
+        &.empty {
+            height: 3.5rem;
+            background: #d1d1ff;
+            font-size: 2rem;
+        }
+
+        &.custom {
+            height: 4rem;
+        }
+
+        &.link {
+            width: auto;
+        }
+
+        &.tap {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    .icon_btn {
+        width: 5.6rem;
+        height: 5.6rem;
+    }
+
+    .icon {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}

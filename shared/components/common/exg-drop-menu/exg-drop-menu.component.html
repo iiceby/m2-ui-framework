@@ -1,0 +1,7 @@
+<ng-container *ngIf="active">
+    <div class="drop_menu" [ngStyle]="{'width': width}">
+        <ng-content></ng-content>
+    </div>
+
+    <div class="overlay" (click)="onClick()"></div>
+</ng-container>

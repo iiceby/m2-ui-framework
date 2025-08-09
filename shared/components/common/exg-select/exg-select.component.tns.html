@@ -1,0 +1,13 @@
+<FlexboxLayout class="text-field" (tap)="openDialog()">
+    <Label class="placeholder" *ngIf="!value" [text]="placeholder"></Label>
+    <Label class="display-value" [text]="getDisplayValue(value)"></Label>
+</FlexboxLayout>
+
+<FlexboxLayout class="errors" *ngIf="validate">
+    <exg-validation-messages class="validation_message" [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered || validate"></exg-validation-messages>
+</FlexboxLayout>
+
+<exg-dialog [componentData]="componentData"
+            [showDialog]="showDialog"
+            [dialogMode]="dialogMode.NoButtons"
+            (dialogClose)="onDialogClose($event)"></exg-dialog>

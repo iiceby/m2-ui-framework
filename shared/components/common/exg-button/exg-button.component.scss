@@ -1,0 +1,163 @@
+:host {
+    display: inline-flex;
+    justify-content: center;
+    text-transform: uppercase;
+
+    button[disabled] {
+        cursor: default;
+        opacity: 0.38;
+        transition: none;
+    }
+
+    .web-btn {
+        height: inherit;
+        text-transform: initial;
+        font-size: inherit;
+        font-weight: inherit;
+        display: inline-flex;
+        align-items: center;
+        border: none;
+        width: inherit;
+        border-radius: inherit;
+        justify-content: inherit;
+        outline: none;
+        cursor: pointer;
+        flex-direction: inherit;
+        letter-spacing: 0.13px;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+        font-size: inherit;
+        padding: 0;
+    }
+
+    .tns-btn {
+        justify-content: center;
+        text-transform: uppercase;
+        width: 100%;
+        height: 36;
+        margin: 0;
+        box-shadow: 0;
+        border-radius: 8;
+    }
+
+    &.exg-button-style-texted {
+        .web-btn {
+            padding: 0 1.6rem;
+
+            &.no-padding {
+                padding: 0;
+            }
+        }
+    }
+
+    &.exg-button-style-common {
+        .web-btn {
+            padding: 0 10px;
+            min-height: 30px;
+            border-radius: 0.6rem;
+            font-size: 14px;
+
+            &.no-padding {
+                padding: 0;
+            }
+        }
+    }
+
+    &.exg-button-style-outlined {
+        .web-btn {
+            border: 1px solid;
+            padding: 0 10px;
+            min-height: 30px;
+            border-radius: 0.6rem;
+            font-size: 14px;
+
+            &.no-padding {
+                padding: 0;
+            }
+        }
+    }
+
+    &.exg-button-style-icon {
+        height: 4.4rem;
+        width: 4.4rem;
+        border-radius: 50%;
+
+        .web-btn {
+            padding: 0;
+        }
+    }
+
+    &.exg-button-style-fab {
+        height: 4.4rem;
+        width: 4.4rem;
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+        border-radius: 50%;
+
+        button {
+            padding: 0;
+        }
+
+        &:hover:enabled {
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    &.exg-button-style-link {
+        position: relative;
+
+        .web-btn {
+            background: inherit;
+            padding: 0 0;
+            width: fit-content;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                top: calc(100% + 1px);
+                width: 100%;
+                transition: all ease-in-out 0.2s;
+            }
+        }
+    }
+
+    &.exg-button-style-custom {
+        position: relative;
+
+        .web-btn {
+            background: inherit;
+            padding: 0 0;
+            width: 100%;
+        }
+            
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            margin: auto;
+            width: 0;
+            transition: all ease-in-out 0.2s;
+            border-radius: 3px 3px 0px 0px
+        }
+
+        &.active {
+            color: #181818;
+            &::before {
+                width: 100%;
+            }
+
+            .tab_btn-icon {
+                color: #181818;
+            }
+        }
+    }
+
+    &.exg-button-style-flat { /**/ }
+}

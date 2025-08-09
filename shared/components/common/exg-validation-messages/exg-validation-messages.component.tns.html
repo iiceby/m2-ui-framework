@@ -1,0 +1,10 @@
+<ng-container *ngIf="validate">
+    <FlexboxLayout *ngIf="errors[0]" class="icon_error_tns"><exg-icon class="icon_tns" iconName="inforound"></exg-icon></FlexboxLayout>
+    <FlexboxLayout class="errors-wrapper">
+        <ng-container *ngFor="let key of errors; trackBy: trackByErrors">
+            <FlexboxLayout *ngIf="showErrors" class="errors_tns" [@validationAppearAnimation]>
+                <Label class="error_tns" *ngFor="let err of key.errors; trackBy: trackByKeyErrors" [text]="err.error | translate:err.param"></Label>
+            </FlexboxLayout>
+        </ng-container>
+    </FlexboxLayout>
+</ng-container>

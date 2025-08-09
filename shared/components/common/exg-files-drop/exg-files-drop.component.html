@@ -1,0 +1,5 @@
+<div class="upload-file-container" (click)="fileInput.click()" exgFileDrop (fileDropped)="uploadFile($event)">
+    <input width="35rem" [attr.accept]="assept" height="35rem" hidden type="file" #fileInput (change)="uploadFileByInput($event.target)" multiple>
+    <exg-icon class="icon" iconName="scraper"></exg-icon>
+    <span class="text">{{'Attach a file or drag it here'}}</span>
+</div>

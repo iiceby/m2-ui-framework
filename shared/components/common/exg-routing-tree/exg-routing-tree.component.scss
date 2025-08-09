@@ -1,0 +1,64 @@
+:host {
+    .tree-invisible {
+        display: none;
+    }
+    
+    .mat-nested-tree-node {
+        font-weight: 500;
+    }
+
+    .mat-icon-rtl-mirror {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: 0.8rem;
+        color: #A6A8B7;
+        transform: rotate(180deg);
+
+        &.expanded {
+            transform: rotate(270deg);
+        }
+    }
+
+    .childrens {
+        .mat-icon-rtl-mirror {
+            display: none;
+        }
+
+        .mat-tree-node_btn {
+            margin-left: 4rem;
+        }
+
+        .mat-nested-tree-node {
+            font-weight: 400;
+        }
+    }
+
+    .node-title {
+        font-size: 1.4rem;
+        line-height: 130%;
+    }
+
+    .mat-tree-node {
+        min-height: 4.4rem;
+    }
+
+    .mat-tree-node_btn {
+        justify-content: flex-start;
+        height: 4.4rem;
+        border-radius: 0.6rem; 
+        width: 100%;
+
+        &.active-exact {
+            background-color: #f4f4f5;
+        }
+    }
+
+    .route-icon {
+        width: 2rem;
+        height: 2rem;
+        min-width: 2rem;
+        min-height: 2rem;
+        margin-right: 0.8rem;
+        color: #A6A8B7;
+    }
+}

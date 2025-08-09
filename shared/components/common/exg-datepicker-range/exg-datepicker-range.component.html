@@ -1,0 +1,22 @@
+<mat-form-field [ngClass]="{'exg-invalid': invalid}" [class.border-enable]="border" [appearance]="appearance" (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false">
+
+    <mat-label class="placeholder">{{placeholder}}</mat-label>
+
+    <mat-date-range-input class="exg-mat-date-range-input"
+                          [rangePicker]="picker"
+                          [disabled]="!!readonly"
+                          [max]="internalMaxDate"
+                          [min]="internalMinDate"
+                          [required]="!!required">
+        <input matStartDate [value]="internalValue?.begin" placeholder="Начальная дата" (dateInput)="onStartChanges($event)">
+        <input matEndDate [value]="internalValue?.end" placeholder="Конечная дата" (dateInput)="onEndChanges($event)">
+    </mat-date-range-input>
+
+    <mat-datepicker-toggle class="datepicker-toggle" matSuffix [for]="picker">
+        <exg-icon matDatepickerToggleIcon iconName="datepicker" color="primary" class="toggle-icon"></exg-icon>
+    </mat-datepicker-toggle>
+
+    <mat-date-range-picker #picker></mat-date-range-picker>
+
+    <input style="position: fixed; top: -5000px; left: -5000px" #elemToFocus />
+</mat-form-field>

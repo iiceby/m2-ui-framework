@@ -1,0 +1,26 @@
+<div class="photo">
+    <input #fileInput accept=".png, .jpg, .jpeg, .gif" class="img-input" [tabindex]="-1" type="file" (change)="onImageChange($event)" onclick="this.value = null;" />
+
+    <div *ngIf="!image" class="not_uploaded" [class.error]="showError">
+        <exg-button class="photo_button" styleType="icon" [tabindex]="-1" (btnClick)="fileInput.click()">
+            <ng-container *ngIf="ref.childNodes.length == 0">
+                <exg-icon class="photo_icon" [width]="iconWidth" [height]="iconHeight" [iconName]="iconName"></exg-icon>
+                <span>{{placeholder}}</span>
+            </ng-container>
+        </exg-button>
+
+        <div #ref><ng-content></ng-content></div>
+    </div>
+
+    <div *ngIf="image" class="uploaded">
+        <img class="photo_icon" src="{{image}}">
+        <exg-button *ngIf="allowRemove" class="remove_photo" styleType="icon" [tabindex]="-1" (btnClick)="onImageRemove()">
+            <exg-icon class="remove_icon" iconName="round-close"></exg-icon>
+        </exg-button>
+    </div>
+</div>
+
+<exg-dialog [componentData]="componentData"
+            [showDialog]="showDialog"
+            [dialogMode]="dialogMode.NoButtons"
+            (dialogClose)="onDialogClose($event)"></exg-dialog>

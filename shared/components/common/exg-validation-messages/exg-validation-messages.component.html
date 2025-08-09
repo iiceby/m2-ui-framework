@@ -1,0 +1,3 @@
+<ng-container *ngIf="validate">
+    <span *ngIf="errors[0]" [matTooltip]="translate(errors[0]?.errors[0]?.error) || translate(errors[0]?.errors[0]?.param)" matTooltipClass="exg-validation-error" class="icon_error"><exg-icon class="icon" iconName="inforound"></exg-icon></span>
+</ng-container>

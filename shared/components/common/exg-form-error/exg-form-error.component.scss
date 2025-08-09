@@ -1,0 +1,17 @@
+@import 'variables';
+
+:host {
+    p {
+        margin-bottom: 1rem;
+        margin-top: 1rem;    
+        color: $warn;
+        font-size: 1.3rem;
+    }
+
+    Label {
+        margin-bottom: 10;
+        margin-top: 10;    
+        color: $warn;
+        font-size: 13;
+    }
+}

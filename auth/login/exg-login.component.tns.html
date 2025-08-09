@@ -1,0 +1,16 @@
+<Label class="h2" [text]="'Login to the system' | translate"></Label>
+
+<FlexboxLayout>
+    <StackLayout [formGroup]="mainForm">
+        <exg-textbox [autoFocus]="true" formControlName="login" [isMultiLine]="true" [maxlength]="32" placeholder="{{'Login' | translate}}" [required]="true" [controlsToValidate]="[login]" [validate]="validate$ | async"></exg-textbox>
+
+        <exg-textbox class="textbox" formControlName="password" [maxlength]="64" placeholder="{{'Password' | translate}}" [isPassword]="true" inputType="password" [required]="true" [controlsToValidate]="[password]" [validate]="validate$ | async"></exg-textbox>
+
+        <exg-form-error [error]="error"></exg-form-error>
+
+        <exg-button class="submit submit_tns" placeholder="{{'Log In' | translate}}" (btnClick)="onSubmit()"></exg-button>
+    </StackLayout>
+</FlexboxLayout>
+<FlexboxLayout class="bottom" *ngIf="showBottomNavigation">
+    <Label class="reset_password" [nsRouterLink]="[routes.auth.resetPassword.fullUrl]" [text]="'Forgot password?' | translate"></Label>
+</FlexboxLayout>

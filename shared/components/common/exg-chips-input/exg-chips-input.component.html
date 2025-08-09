@@ -1,0 +1,25 @@
+<mat-form-field class="example-chip-list"  appearance="outline" (focusin)="focused=true" (focusout)="focused=false">
+    <mat-chip-grid #chipGrid aria-label="Fruit selection" [required]="!!required">
+        <mat-chip-row *ngFor="let val of internalValue; trackBy: trackByChips"
+                      [editable]="selectable"
+                      (removed)="remove(val)"
+                      [editable]="false">
+                      {{val}}
+            <button matChipRemove [attr.aria-label]="'remove ' + val">
+                <mat-icon class="close" svgIcon="round-close"></mat-icon>
+            </button>
+        </mat-chip-row>
+        <input matInput
+              [imask]="mask" [unmask]="true"
+              [(ngModel)]="inputValue"
+              [matChipInputFor]="chipGrid"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [attr.maxlength]= 'maxlength'
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-grid>
+
+    <mat-label>{{placeholder}}</mat-label>
+  
+    <exg-validation-messages [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+</mat-form-field>

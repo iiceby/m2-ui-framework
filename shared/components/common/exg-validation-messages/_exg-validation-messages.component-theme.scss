@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    // Get the color config from the theme.
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $warn-palette: map.get($color-config, 'warn');
+    
+    .exg-validation-error {
+        --mdc-plain-tooltip-supporting-text-color: none;
+        --mdc-plain-tooltip-container-color: none;
+
+        color: mat.get-color-from-palette($warn-palette, 'default-contrast');
+        background-color: rgba(mat.get-color-from-palette($warn-palette), 0.8);
+        border-radius: 4px;
+    }
+}

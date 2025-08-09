@@ -1,0 +1,8 @@
+<FlexboxLayout *ngIf="!!componentData">
+    <ng-container *ngIf="componentData.key === dialogsConfig.ExgSelect">
+        <exg-select-dialog-container [inputs]="componentData.inputs" (closeDialog)="onCloseDialog($event)"></exg-select-dialog-container>
+    </ng-container>
+    <ng-container *ngIf="componentData.key === dialogsConfig.ExgAutocomplete">
+        <exg-autocomplete-dialog-container [inputs]="componentData.inputs" (closeDialog)="onCloseDialog($event)"></exg-autocomplete-dialog-container>
+    </ng-container>
+</FlexboxLayout>

@@ -1,0 +1,28 @@
+@import 'variables';
+
+:host {
+    display: flex;
+    align-items: center;
+
+    span {
+        color: $accent-contrast;
+    }
+
+    .icon {
+        margin-right: 1.6rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .icon_snackbar-text-style-Ok {
+        color: $accent-alternative;
+    }
+
+    .icon_snackbar-text-style-Error {
+        color: $warn;
+    }
+
+    .icon_snackbar-text-style-Warning {
+        color: $primary;
+    }
+}

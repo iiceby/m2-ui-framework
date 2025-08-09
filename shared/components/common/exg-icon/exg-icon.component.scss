@@ -1,0 +1,66 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        display: flex;
+    }
+
+    image {
+        width: 12;
+        height: 12; 
+    }
+
+    ::ng-deep svg, .mat-icon {
+        height: inherit !important;
+        width: inherit !important;
+    }
+
+    &.prefix {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        &.mat-icon {
+            margin-right: 0.8rem;
+            margin-left: -0.4rem;
+        }
+
+        &image {
+            margin-right: 4;
+            margin-left: 2;
+        }
+    }
+
+    &.suffix {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        &.mat-icon {
+            margin-left: 0.8rem;
+            margin-right: -0.4rem;
+        }
+
+        &image {
+            margin-left: 4;
+            margin-right: -2;
+        }
+    }
+
+    .icon-tns {
+        width: 8px;
+        height: 11px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+}

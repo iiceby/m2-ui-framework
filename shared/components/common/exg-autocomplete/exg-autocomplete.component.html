@@ -1,0 +1,34 @@
+<mat-form-field class="web" [appearance]="appearance" [class.border-enable]="border" (mouseover)="hovered=true" (mouseleave)="hovered=false" (focusin)="focused=true" (focusout)="focused=false">
+    <div class="height-layout" style="width: 100%;">
+        <input #input matInput
+            [attr.disabled]="readonly"
+            [attr.title]="title"
+            autocomplete="off"
+            [disabled]="readonly"
+            [matAutocomplete]="auto"
+            [maxlength]="maxlength"
+            class="web"
+            name="autocompletefield"
+            [ngModel]="internalValue"
+            [required]="!!required"
+            (blur)="onBlur()"
+            (ngModelChange)="onValueChange($event)">
+    </div>
+    <mat-autocomplete autoActiveFirstOption [panelWidth]="panelWidthInternal" #auto="matAutocomplete">
+        <mat-option *ngIf="allowNull">{{emptyDisplayValue}}</mat-option>
+        <mat-option *ngFor="let item of internalData; trackBy: trackByItem" [value]="item.displayValue" (onSelectionChange)="onSelectionChange($event, item.originalValue)">
+            <ng-container *ngIf="!!displayValueTemplate" [ngTemplateOutlet]="displayValueTemplate" [ngTemplateOutletContext]="{$implicit: item.originalValue}"></ng-container>
+            <ng-container *ngIf="!displayValueTemplate">{{item.displayValue}}</ng-container>
+        </mat-option>
+    </mat-autocomplete>
+
+    <mat-label class="placeholder">{{placeholder}}</mat-label>
+
+    <div *ngIf="iconName" matSuffix class="icon">
+        <exg-icon class="show-icon" [color]="iconColor" [iconName]="iconName"></exg-icon>
+    </div>
+
+    <exg-validation-messages matSuffix [controls]="controlsToValidate" [validate]="validate" [showErrors]="focused || hovered"></exg-validation-messages>
+</mat-form-field>
+
+<ng-content></ng-content>

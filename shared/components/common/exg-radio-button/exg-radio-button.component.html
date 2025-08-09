@@ -1,0 +1,7 @@
+<mat-radio-group class="mgl-radio-group" [required]="!!required" [name]="name" [class.column]="direction === 'column'" (change)="onSelectionChange($event)">
+    <mat-radio-button class="mgl-radio-button"
+                      [value]="value"
+                      [name]="name"
+                      color="primary"
+                      [checked]="compareFn(groupValue, value)">{{placeholder}}</mat-radio-button>
+</mat-radio-group>

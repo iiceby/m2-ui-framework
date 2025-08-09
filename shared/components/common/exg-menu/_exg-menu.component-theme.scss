@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    // Get the color config from the theme.
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+    $warn-palette: map.get($color-config, 'warn');
+
+    .exg-menu {
+        background-color: mat.get-color-from-palette($accent-palette, 'default-contrast');
+        border: 1px solid rgba(mat.get-color-from-palette($primary-palette, 'darker-contrast'), 0.5) !important;
+    }
+
+    .exg-menu-btn {
+        color: mat.get-color-from-palette($accent-palette);
+
+        &.primary {
+            color: mat.get-color-from-palette($primary-palette) !important;
+        }
+
+        &.accent {
+            color: mat.get-color-from-palette($accent-palette) !important;
+        }
+
+        &.warn {
+            color: mat.get-color-from-palette($warn-palette) !important;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+
+<div class="block">
+    <div>version: <span>{{version}}</span></div>
+    <div>environment: <span>{{envName}}</span></div>
+    <div>Last Update: <span>{{lastUpdateDate | exgDate:'dd.MM.y h:mm z'}}</span></div>
+    <div>API url: <span>{{apiUrl}}</span></div>
+    <div>production mode: <span [ngClass]="production ? 'green' : 'red'">{{production}}</span></div>
+    <div>Angular dev mode: <span [ngClass]="angularDevMode ? 'green' : 'red'">{{angularDevMode}}</span></div>
+
+    <div *ngIf="isDebug" class="debug-block">
+        <div>debug mode: <span [ngClass]="isDebug ? 'green' : 'red'">ACTIVATED</span></div>
+        <div>HMR mode: {{hmr}}</div>
+        <div>debug pop error mode: {{isDebugPopError}}</div>
+    </div>
+</div>
+<div class="link">
+    <a [routerLink]="[routes.version.icons.fullUrl]">icons</a>
+    <a [routerLink]="[routes.version.styling.fullUrl]">components</a>
+</div>

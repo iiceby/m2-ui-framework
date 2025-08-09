@@ -1,0 +1,3 @@
+<img *ngIf="!authorized" [src]="imageUrl" [attr.alt]="alt" (load)="onLoadComplete()" (error)="onLoadError()">
+<img *ngIf="authorized" [attr.src]="imageUrl | exgSecure | async" [attr.alt]="alt" (load)="onLoadComplete()" (error)="onLoadError()" />
+<!-- <exg-spinner *ngIf="showSpinner && isLoading" class="spinner" [width]="spinnerWidth" [height]="spinnerHeight"></exg-spinner> -->

@@ -1,0 +1,38 @@
+:host {
+    .info-box {
+        position: absolute;
+        display: flex;
+        width: 25rem;
+        height: 12rem;
+        flex-direction: column;
+        z-index: 999;
+        border-radius: 0.6rem;
+        box-shadow: 0px 4px 10px 0px #1626380F;
+        background: #00B5D5B2;
+        padding: 1.6rem;
+    }
+
+    .form-title {
+        font-size: 1.4rem;
+        color: #fff;
+        margin-bottom: 1.6rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        line-height: 1.6rem;
+    }
+
+    .note-icon {
+        width: 1.4rem;
+        min-width: 1.4rem;
+        height: 1.4rem;
+        min-height: 1.4rem;
+        margin-left: 0.8rem;
+    }
+
+    .note-text {
+        font-size: 1.4rem;
+        color: #fff;
+    }
+}
