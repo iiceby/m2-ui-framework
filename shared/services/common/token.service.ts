@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, fromEvent } from 'rxjs';
+import { map, filter, startWith, distinctUntilChanged } from 'rxjs/operators';
 
 import { BaseSingletonService } from '../common/base-singleton.service';
 import { LocalStorageService } from '../common/local-storage.service';
@@ -10,8 +12,21 @@ import { Router } from '@angular/router';
     providedIn: 'root',
 })
 export class TokenService extends BaseSingletonService {
+    private tokenSubject = new BehaviorSubject<string | null>(this.getAuthToken());
+    
     constructor(private localStorage: LocalStorageService, private router: Router) {
         super('TokenService');
+        
+        // Listen to storage events from other tabs/windows
+        fromEvent<StorageEvent>(window, 'storage')
+            .pipe(
+                filter(event => event.key === ExgBaseParamsConfig.storageKeys.storageTokenKey),
+                map(event => event.newValue),
+                distinctUntilChanged()
+            )
+            .subscribe(token => {
+                this.tokenSubject.next(token);
+            });
     }
 
     /**
@@ -41,5 +56,24 @@ export class TokenService extends BaseSingletonService {
             this.localStorage.setItem(ExgBaseParamsConfig.storageKeys.storageTokenKey, token);
             this.localStorage.setItem(ExgBaseParamsConfig.storageKeys.storageRefreshTokenKey, refreshToken ?? '');
         }
+        
+        // Notify subscribers about token change
+        this.tokenSubject.next(token);
+    }
+
+    /**
+     * Get Observable that emits when token changes
+     */
+    public getTokenObservable(): Observable<string | null> {
+        return this.tokenSubject.asObservable().pipe(
+            distinctUntilChanged()
+        );
+    }
+
+    /**
+     * Get current token value synchronously
+     */
+    public getCurrentToken(): string | null {
+        return this.tokenSubject.value;
     }
 }
